@@ -10,20 +10,17 @@ class ProvinceTest < Minitest::Test
   end
 
   def test_province_shortfall
-    asia = Province.new(sample_province_data)
-    assert_equal(5, asia.shortfall)
+    assert_equal(5, @asia.shortfall)
   end
 
   def test_province_profit
-    asia = Province.new(sample_province_data)
-    assert_equal(230, asia.profit)
+    assert_equal(230, @asia.profit)
   end
 
   def test_production_setter
-    asia = Province.new(sample_province_data)
-    asia.producers[0].production = 20
-    assert_equal(-6, asia.shortfall)
-    assert_equal(292, asia.profit)
+    @asia.producers[0].production = 20
+    assert_equal(-6, @asia.shortfall)
+    assert_equal(292, @asia.profit)
   end
 
   def test_no_producers
@@ -33,29 +30,26 @@ class ProvinceTest < Minitest::Test
       demand: 30,
       price: 20
     }
-    noProducers = Province.new(data)
-    assert_equal(30, noProducers.shortfall)
-    assert_equal(0, noProducers.profit)
+    @noProducers = Province.new(data)
+    assert_equal(30, @noProducers.shortfall)
+    assert_equal(0, @noProducers.profit)
   end
 
   def test_no_demand
-    asia = Province.new(sample_province_data)
-    asia.demand = 0
-    assert_equal(-25, asia.shortfall)
-    assert_equal(0, asia.profit)
+    @asia.demand = 0
+    assert_equal(-25, @asia.shortfall)
+    assert_equal(0, @asia.profit)
   end
 
   def test_negative_demand
-    asia = Province.new(sample_province_data)
-    asia.demand = -1
-    assert_equal(-26, asia.shortfall)
-    assert_equal(-10, asia.profit)
+    @asia.demand = -1
+    assert_equal(-26, @asia.shortfall)
+    assert_equal(-10, @asia.profit)
   end
 
   def test_empty_string
-    asia = Province.new(sample_province_data)
-    asia.demand = ""
-    assert_equal(NIL, asia.shortfall)
-    assert_equal(NIL, asia.profit)
+    @asia.demand = ""
+    assert_equal(NIL, @asia.shortfall)
+    assert_equal(NIL, @asia.profit)
   end
 end

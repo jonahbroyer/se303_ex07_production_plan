@@ -54,5 +54,6 @@ class ProvinceTest < Minitest::Test
     end
     assert_raises ArgumentError do
       @asia.profit
+    end
   end
 end

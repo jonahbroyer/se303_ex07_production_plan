@@ -5,6 +5,9 @@ require_relative '../lib/province'
 require_relative '../lib/data'
 
 class ProvinceTest < Minitest::Test
+  def setup
+    @asia = Province.new(sample_province_data)
+  end
 
   def test_province_shortfall
     asia = Province.new(sample_province_data)
